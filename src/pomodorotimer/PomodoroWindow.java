@@ -14,7 +14,7 @@ import javax.swing.Timer;
  * @author guilu
  */
 public class PomodoroWindow extends javax.swing.JFrame {
-    private static Timer timer = new Timer(1000, new ActionListener() {
+    private static final Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             PomodoroWindow.getTimerState().tick();
@@ -39,27 +39,41 @@ public class PomodoroWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblContador = new javax.swing.JLabel();
+        lblMainText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(229, 229, 229));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Hora de focar!");
+        lblContador.setBackground(new java.awt.Color(102, 102, 102));
+        lblContador.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        lblContador.setForeground(new java.awt.Color(229, 229, 229));
+        lblContador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblContador.setText("25:00");
+
+        lblMainText.setBackground(new java.awt.Color(102, 102, 102));
+        lblMainText.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        lblMainText.setForeground(new java.awt.Color(229, 229, 229));
+        lblMainText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMainText.setText("Hora de focar!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(lblContador)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblMainText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 335, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblMainText)
+                .addGap(95, 95, 95)
+                .addComponent(lblContador)
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +129,7 @@ public class PomodoroWindow extends javax.swing.JFrame {
         return timerState;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblContador;
+    private javax.swing.JLabel lblMainText;
     // End of variables declaration//GEN-END:variables
 }
